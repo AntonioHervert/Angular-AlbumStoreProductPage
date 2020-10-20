@@ -4,15 +4,15 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ProductService {
 
-  private _http: Http;
+
   private _albymUrl = "../assets/album.json";
 
-  constructor() { }
+  constructor(private _http: Http) { }
 
   getAlbum(id: number){
-    return this._http.get(this._albymUrl).map(response=>{
-      response.json();
-    });  
+    return this._http.get(this._albymUrl).map((response)=>
+      response.json()
+    );  
   }
 
 
